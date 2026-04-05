@@ -1,0 +1,412 @@
+/* ---------- Root ---------- */
+.root {
+  margin-top: 32px;
+}
+
+/* ---------- Empty State ---------- */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.emptyIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: #f0f9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.emptyIcon svg {
+  width: 32px;
+  height: 32px;
+  color: #7dd3fc;
+}
+
+.emptyTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.emptySubtitle {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ---------- Kanban Grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Column ---------- */
+.column {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+}
+
+/* Column headers */
+.columnHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.columnHeader.pending   { background: #3b82f6; }
+.columnHeader.inProgress { background: #f97316; }
+.columnHeader.completed  { background: #10b981; }
+
+.columnHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.columnTitle {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.columnCount {
+  background: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* Column body */
+.columnBody {
+  flex: 1;
+  padding: 12px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.columnBody.pending    { background: #eff6ff; }
+.columnBody.inProgress { background: #fff7ed; }
+.columnBody.completed  { background: #ecfdf5; }
+
+/* Empty column */
+.columnEmpty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* ---------- Task Card ---------- */
+.card {
+  border-radius: 14px;
+  padding: 14px;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+  transition: box-shadow 0.2s, transform 0.15s;
+  cursor: default;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
+}
+
+.card.low      { background: #fefce8; }
+.card.medium   { background: #fff7ed; }
+.card.high     { background: #fef2f2; }
+
+/* Card top row */
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.cardTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  flex: 1;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.deleteBtn:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+/* Description */
+.cardDesc {
+  font-size: 0.775rem;
+  color: #64748b;
+  margin: 0 0 10px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Priority badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.badge.low      { background: #fef9c3; color: #854d0e; }
+.badge.medium   { background: #ffedd5; color: #9a3412; }
+.badge.high     { background: #fee2e2; color: #991b1b; }
+
+/* Progress bar */
+.progressRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.progressLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.progressValue {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(to right, #38bdf8, #3b82f6);
+  transition: width 0.4s ease;
+}
+
+/* Card action buttons */
+.cardActions {
+  display: flex;
+  gap: 8px;
+}
+
+.editBtn {
+  flex: 1;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+  color: #ffffff;
+  font-size: 0.775rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+  font-family: inherit;
+  box-shadow: 0 2px 6px rgba(14, 165, 233, 0.25);
+}
+
+.editBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.toggleBtn {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #475569;
+  font-size: 0.775rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.toggleBtn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+
+/* ---------- Confirm Dialog ---------- */
+.confirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+.confirmBox {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 28px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.18);
+  border: 1px solid #f1f5f9;
+  animation: slideUp 0.25s ease;
+  text-align: center;
+}
+
+.confirmIconWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #fef2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.confirmIconWrap svg {
+  width: 28px;
+  height: 28px;
+  color: #ef4444;
+}
+
+.confirmTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.confirmMessage {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+
+.confirmTaskName {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.confirmActions {
+  display: flex;
+  gap: 10px;
+}
+
+.confirmCancelBtn {
+  flex: 1;
+  padding: 11px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #475569;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: inherit;
+}
+
+.confirmCancelBtn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.confirmDeleteBtn {
+  flex: 1;
+  padding: 11px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  font-family: inherit;
+}
+
+.confirmDeleteBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.confirmDeleteBtn:active {
+  transform: translateY(0);
+}
